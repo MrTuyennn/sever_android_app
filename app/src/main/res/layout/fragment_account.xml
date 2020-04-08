@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?android:attr/windowBackground"
+        app:navigationIcon="@drawable/login"
+        app:title="Thông Tin Cá Nhân">
+    </androidx.appcompat.widget.Toolbar>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/custom_toolbar_dropshadow"></TextView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>
