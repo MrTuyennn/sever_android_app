@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ActivitySanPham"></activity>
-        <activity android:name=".Home_Activity" />
-        <activity android:name=".Regis_Activity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".FlashActivity">
+        <activity android:name=".activity.SanPhamActivity"></activity>
+        <activity android:name=".activity.Home_Activity" />
+        <activity android:name=".activity.Regis_Activity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.FlashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

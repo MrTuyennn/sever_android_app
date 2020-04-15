@@ -3,31 +3,23 @@ package com.example.android_member.fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android_member.Home_Activity;
 import com.example.android_member.R;
 import com.example.android_member.adapter.Adapter_LoaiSP;
 import com.example.android_member.api.API;
 import com.example.android_member.api.RetrofitClient;
 import com.example.android_member.model.BaseResponse;
 
-import com.example.android_member.model.SanPham;
 import com.example.android_member.model.TenLoaiSP;
 
 import java.util.ArrayList;

@@ -14,8 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_member.R;
 
-import com.example.android_member.activity.ActivitySanPham;
-import com.example.android_member.model.SanPham;
+import com.example.android_member.activity.SanPhamActivity;
 import com.example.android_member.model.TenLoaiSP;
 import com.squareup.picasso.Picasso;
 
@@ -52,7 +51,7 @@ public class Adapter_LoaiSP extends RecyclerView.Adapter<Adapter_LoaiSP.ViewHold
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ActivitySanPham.class);
+                Intent intent = new Intent(context, SanPhamActivity.class);
                 intent.putExtra("Id",loaiSanPham.getId());
                 context.startActivity(intent);
             }

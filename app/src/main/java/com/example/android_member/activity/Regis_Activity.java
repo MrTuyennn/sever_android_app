@@ -1,10 +1,12 @@
-package com.example.android_member;
+package com.example.android_member.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.example.android_member.R;
 
 public class Regis_Activity extends AppCompatActivity {
 

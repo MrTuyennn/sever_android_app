@@ -1,4 +1,4 @@
-package com.example.android_member;
+package com.example.android_member.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Window;
 
+import com.example.android_member.R;
 import com.example.android_member.fragment.Fragment_Account;
 import com.example.android_member.fragment.Fragment_Cart;
 import com.example.android_member.fragment.Fragment_Store;

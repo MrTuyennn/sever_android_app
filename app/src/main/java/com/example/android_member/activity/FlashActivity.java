@@ -1,4 +1,4 @@
-package com.example.android_member;
+package com.example.android_member.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.android_member.R;
 
 public class FlashActivity extends AppCompatActivity {
     TextView tv_flash;
