@@ -1,70 +1,97 @@
 package com.example.android_member.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class SanPham {
-    private int    ID;
-    private String MaSP;
-    private String TenSP;
-    private int    GiaSP;
-    private String MoTa;
-    private int    ImgSP;
 
-    public SanPham() {
+    @SerializedName("_id")
+    @Expose
+    private String id;
+    @SerializedName("MaSP")
+    @Expose
+    private String maSP;
+    @SerializedName("TenLoaiSP")
+    @Expose
+    private TenLoaiSP tenLoaiSP;
+    @SerializedName("TenSP")
+    @Expose
+    private String tenSP;
+    @SerializedName("GiaSP")
+    @Expose
+    private Integer giaSP;
+    @SerializedName("MotaSP")
+    @Expose
+    private String motaSP;
+    @SerializedName("imageSP")
+    @Expose
+    private String imageSP;
+    @SerializedName("__v")
+    @Expose
+    private Integer v;
+
+    public String getId() {
+        return id;
     }
 
-    public SanPham(int ID, String maSP, String tenSP, int giaSP, String moTa, int imgSP) {
-        this.ID = ID;
-        MaSP = maSP;
-        TenSP = tenSP;
-        GiaSP = giaSP;
-        MoTa = moTa;
-        ImgSP = imgSP;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMaSP() {
-        return MaSP;
+        return maSP;
     }
 
     public void setMaSP(String maSP) {
-        MaSP = maSP;
+        this.maSP = maSP;
+    }
+
+    public TenLoaiSP getTenLoaiSP() {
+        return tenLoaiSP;
+    }
+
+    public void setTenLoaiSP(TenLoaiSP tenLoaiSP) {
+        this.tenLoaiSP = tenLoaiSP;
     }
 
     public String getTenSP() {
-        return TenSP;
+        return tenSP;
     }
 
     public void setTenSP(String tenSP) {
-        TenSP = tenSP;
+        this.tenSP = tenSP;
     }
 
-    public int getGiaSP() {
-        return GiaSP;
+    public Integer getGiaSP() {
+        return giaSP;
     }
 
-    public void setGiaSP(int giaSP) {
-        GiaSP = giaSP;
+    public void setGiaSP(Integer giaSP) {
+        this.giaSP = giaSP;
     }
 
-    public String getMoTa() {
-        return MoTa;
+    public String getMotaSP() {
+        return motaSP;
     }
 
-    public void setMoTa(String moTa) {
-        MoTa = moTa;
+    public void setMotaSP(String motaSP) {
+        this.motaSP = motaSP;
     }
 
-    public int getImgSP() {
-        return ImgSP;
+    public String getImageSP() {
+        return imageSP;
     }
 
-    public void setImgSP(int imgSP) {
-        ImgSP = imgSP;
+    public void setImageSP(String imageSP) {
+        this.imageSP = imageSP;
     }
+
+    public Integer getV() {
+        return v;
+    }
+
+    public void setV(Integer v) {
+        this.v = v;
+    }
+
 }
