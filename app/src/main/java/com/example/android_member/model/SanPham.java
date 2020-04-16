@@ -3,7 +3,9 @@ package com.example.android_member.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SanPham {
+import java.io.Serializable;
+
+public class SanPham implements Serializable {
 
     @SerializedName("_id")
     @Expose

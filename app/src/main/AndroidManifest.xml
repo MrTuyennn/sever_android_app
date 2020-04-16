@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.SanPhamActivity"></activity>
+        <activity android:name=".activity.InforSanPhamActivity"></activity>
+        <activity android:name=".activity.SanPhamActivity" />
         <activity android:name=".activity.Home_Activity" />
         <activity android:name=".activity.Regis_Activity" />
         <activity android:name=".activity.LoginActivity" />

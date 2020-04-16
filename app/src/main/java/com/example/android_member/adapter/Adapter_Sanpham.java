@@ -1,6 +1,7 @@
 package com.example.android_member.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,19 +9,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_member.R;
+import com.example.android_member.activity.InforSanPhamActivity;
+import com.example.android_member.activity.SanPhamActivity;
 import com.example.android_member.model.SanPham;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class Adapter_Sanpham extends RecyclerView.Adapter<Adapter_Sanpham.ViewHolder> {
     private List<SanPham> sanPhamList;
-    private Context context;
+    private SanPhamActivity context;
 
-    public Adapter_Sanpham(List<SanPham> sanPhamList,Context context){
+    public Adapter_Sanpham(List<SanPham> sanPhamList,SanPhamActivity context){
         this.sanPhamList = sanPhamList;
         this.context = context;
     }
@@ -35,7 +40,7 @@ public class Adapter_Sanpham extends RecyclerView.Adapter<Adapter_Sanpham.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-         SanPham sanPham = sanPhamList.get(position);
+         final SanPham sanPham = sanPhamList.get(position);
         try {
             Picasso.with(context)
                     .load("http://192.168.1.5:3000/" + sanPham.getImageSP())
@@ -46,6 +51,14 @@ public class Adapter_Sanpham extends RecyclerView.Adapter<Adapter_Sanpham.ViewHo
         holder.txt_tensp.setText(sanPham.getTenSP());
         holder.txt_masp.setText("Mã Sản Phẩm :" + " " + sanPham.getMaSP());
         holder.txt_giasp.setText("Giá Sản Phẩm :" + " " + sanPham.getGiaSP());
+        holder.cardview_sanpham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, InforSanPhamActivity.class);
+                i.putExtra("sanpham", sanPham);
+                context.startActivity(i);
+            }
+        });
 
     }
 
@@ -57,12 +70,14 @@ public class Adapter_Sanpham extends RecyclerView.Adapter<Adapter_Sanpham.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img_sanpham;
         TextView txt_tensp,txt_giasp,txt_masp;
+        CardView cardview_sanpham;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img_sanpham = itemView.findViewById(R.id.img_sanpham);
             txt_tensp = itemView.findViewById(R.id.txt_tensp);
             txt_giasp = itemView.findViewById(R.id.txt_giasp);
             txt_masp = itemView.findViewById(R.id.txt_masp);
+            cardview_sanpham = itemView.findViewById(R.id.cardview_sanpham);
         }
     }
 }

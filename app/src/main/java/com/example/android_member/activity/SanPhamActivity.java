@@ -67,7 +67,7 @@ public class SanPhamActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        Adapter_Sanpham adapter_sanpham = new Adapter_Sanpham(sanPhamList,getApplicationContext());
+        Adapter_Sanpham adapter_sanpham = new Adapter_Sanpham(sanPhamList,SanPhamActivity.this);
         recycler.setAdapter(adapter_sanpham);
         adapter_sanpham.notifyDataSetChanged();
     }
