@@ -1,136 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:measureAllChildren="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:gravity="center"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/sneakers">
-        </ImageView>
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:text="Ashoe Brcze5"
-            android:textColor="#000000">
-        </TextView>
-    </LinearLayout>
-    <LinearLayout
+    tools:context=".activity.LoginActivity">
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textColor="#000000"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:padding="5dp"
-            android:layout_marginLeft="5dp">
-        </TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
+        android:scaleType="centerCrop"
+        android:background="@drawable/playcdg"></ImageView>
+    <LinearLayout
         android:layout_width="match_parent"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:outlineAmbientShadowColor="#ffffff"
-        android:layout_height="wrap_content"
-        android:textColorHint="#7C7C7C"
-        app:hintEnabled="false"
-        android:background="@drawable/custom_border"
-        app:hintAnimationEnabled="false"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="10dp">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableRight="@drawable/login"
-            android:drawablePadding="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="Nhập Tên Người Dùng/Email"
-            android:textColorHint="#706E6E"
-            android:textColor="#000000">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:outlineAmbientShadowColor="#ffffff"
-            android:layout_height="wrap_content"
-            android:textColorHint="#7C7C7C"
-            app:hintEnabled="false"
-            android:background="@drawable/custom_border"
-            app:hintAnimationEnabled="false"
-            android:layout_marginTop="20dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black"
-            android:layout_marginHorizontal="10dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_password"
-                android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="250dp"
+        android:orientation="vertical"
+        android:background="@drawable/custom_backgroundlogin">
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/password"
-                android:drawablePadding="10dp"
-                android:layout_marginTop="10dp"
-                android:hint="Nhập Mật Khẩu"
-                android:textColorHint="#706E6E"
-                android:inputType="textPassword"
-                android:textColor="#ffffff">
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password ?"
-            android:textColor="@color/black"
-            android:layout_marginLeft="250dp"
-            android:padding="10dp"></TextView>
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/custom_login"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="30dp"
-            android:text="Login"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            ></Button>
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/logo">
+            </ImageView>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="50dp"
-            android:layout_marginHorizontal="20dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nếu bạn chưa có tài khoản thì đăng ký tại đây ?"
-                android:textColor="@color/black"></TextView>
+                android:text="Login"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:layout_marginLeft="5dp">
+            </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập Email Người Dùng"
+                    android:drawableLeft="@drawable/user"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:drawablePadding="10dp"></com.google.android.material.textfield.TextInputEditText>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập Email Người Dùng"
+                    android:drawableLeft="@drawable/lock"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:drawablePadding="10dp"></com.google.android.material.textfield.TextInputEditText>
+            </LinearLayout>
             <TextView
-                android:id="@+id/tv_resgitered"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Click here"
-                android:textColor="#F60505"
-                android:layout_marginLeft="10dp"></TextView>
+                android:text="Forgot Password ?"
+                android:textColor="@color/black"
+                android:layout_marginLeft="250dp"
+                android:padding="10dp"></TextView>
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_login"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:text="Login"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                ></Button>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nếu bạn chưa có tài khoản thì đăng ký tại đây ?"
+                    android:textColor="@color/black"></TextView>
+                <TextView
+                    android:id="@+id/tv_resgitered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Click here"
+                    android:textColor="#F60505"
+                    android:layout_marginLeft="10dp"></TextView>
+            </LinearLayout>
         </LinearLayout>
-
-
-
     </LinearLayout>
-
-
-</LinearLayout>
+</FrameLayout>
