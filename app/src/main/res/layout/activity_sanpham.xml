@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.SanPhamActivity">
-    <LinearLayout
-        android:orientation="vertical"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar123"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#ffffff"
+        app:title="Product"
+        app:titleMarginStart="120dp"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/arrow">
+    </androidx.appcompat.widget.Toolbar>
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_sp"
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/custom_toolbar_dropshadow"/>
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
-
-
-</RelativeLayout>
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:drawableLeft="@drawable/loupe"
+            android:drawablePadding="10dp"
+            android:hint="Search"
+            android:id="@+id/edt_search"
+            android:padding="10dp"
+            android:background="@drawable/custom_border"></EditText>
+        <ScrollView
+            android:layout_marginTop="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>

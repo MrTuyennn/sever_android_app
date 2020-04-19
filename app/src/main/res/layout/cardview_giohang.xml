@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:id="@+id/cardview_sanpham"
+    android:id="@+id/cardview_giohang"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:layout_margin="10dp">
         <ImageView
-            android:id="@+id/img_sanpham"
+            android:id="@+id/img_giohang"
             android:layout_width="100dp"
             android:layout_margin="10dp"
             android:layout_height="100dp"></ImageView>
@@ -24,22 +24,34 @@
             android:orientation="vertical">
             <TextView
                 android:textColor="@color/black"
-                android:id="@+id/txt_tensp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"></TextView>
+                android:id="@+id/tensanpham_giohang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"></TextView>
             <TextView
-                android:id="@+id/txt_masp"
+                android:id="@+id/ngaymua"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"></TextView>
             <TextView
-                android:id="@+id/txt_giasp"
+                android:id="@+id/giasanpham_giohang"
                 android:textColor="@color/red"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"></TextView>
+            <TextView
+                android:id="@+id/trangthai"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"></TextView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xóa"
+                android:id="@+id/btn_delete"
+                android:background="@drawable/custom_boder_button"></Button>
         </LinearLayout>
     </LinearLayout>
 

@@ -14,77 +14,72 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_member.R;
 import com.example.android_member.activity.InforSanPhamActivity;
-import com.example.android_member.activity.SanPhamActivity;
+import com.example.android_member.fragment.Fragment_Store;
 import com.example.android_member.model.SanPham;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-public class Adapter_Sanpham extends RecyclerView.Adapter<Adapter_Sanpham.ViewHolder> {
+public class Adapter_AllSanpham extends RecyclerView.Adapter<Adapter_AllSanpham.ViewHolder> {
     private List<SanPham> sanPhamList;
-    private SanPhamActivity context;
-
-    public Adapter_Sanpham(List<SanPham> sanPhamList,SanPhamActivity context){
+    private Context context;
+    public Adapter_AllSanpham(List<SanPham> sanPhamList, Context context){
         this.sanPhamList = sanPhamList;
         this.context = context;
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.cardview_sanpham,parent,false);
+        View view = layoutInflater.inflate(R.layout.cardview_allsanpham,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-         final SanPham sanPham = sanPhamList.get(position);
+        final SanPham sanPham = sanPhamList.get(position);
         try {
             Picasso.with(context)
                     .load("http://192.168.1.5:3000/" + sanPham.getImageSP())
-                    .into(holder.img_sanpham);
+                    .into(holder.img_allsp);
         } catch (Exception e){
 
         }
         holder.txt_tensp.setText(sanPham.getTenSP());
-        holder.txt_masp.setText("Mã Sản Phẩm :" + " " + sanPham.getMaSP());
-        holder.txt_giasp.setText("Giá Sản Phẩm :" + " " + sanPham.getGiaSP());
-        holder.cardview_sanpham.setOnClickListener(new View.OnClickListener() {
+        holder.txt_giasap.setText(String.valueOf(sanPham.getGiaSP()) + "");
+        holder.txt_tenloaisp.setText(sanPham.getTenLoaiSP().getTenLoaiSP());
+        holder.cardView_allsanpham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, InforSanPhamActivity.class);
-                i.putExtra("sanpham", sanPham);
-                context.startActivity(i);
+                Intent intent = new Intent(context, InforSanPhamActivity.class);
+                intent.putExtra("sanpham",sanPham);
+                context.startActivity(intent);
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
+
         return sanPhamList.size();
     }
-
-    public void  getFilter(ArrayList<SanPham> filterlist) {
+    public void  getFilterSp(ArrayList<SanPham> filterlist) {
         sanPhamList = filterlist;
         notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView img_sanpham;
-        TextView txt_tensp,txt_giasp,txt_masp;
-        CardView cardview_sanpham;
+        ImageView img_allsp;
+        TextView txt_tensp,txt_giasap,txt_tenloaisp;
+        CardView cardView_allsanpham;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img_sanpham = itemView.findViewById(R.id.img_sanpham);
-            txt_tensp = itemView.findViewById(R.id.txt_tensp);
-            txt_giasp = itemView.findViewById(R.id.txt_giasp);
-            txt_masp = itemView.findViewById(R.id.txt_masp);
-            cardview_sanpham = itemView.findViewById(R.id.cardview_sanpham);
+            img_allsp = itemView.findViewById(R.id.img_allsp);
+            txt_tensp = itemView.findViewById(R.id.txt_tenallsp);
+            txt_giasap = itemView.findViewById(R.id.txt_giaallsp);
+            txt_tenloaisp = itemView.findViewById(R.id.txt_tenloaisp);
+            cardView_allsanpham = itemView.findViewById(R.id.cardview_allsanpham);
         }
     }
 }

@@ -42,22 +42,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
+                    android:id="@+id/txt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nhập Email Người Dùng"
                     android:drawableLeft="@drawable/user"
                     android:padding="10dp"
                     android:layout_margin="10dp"
-                    android:drawablePadding="10dp"></com.google.android.material.textfield.TextInputEditText>
-                <com.google.android.material.textfield.TextInputEditText
+                    android:drawablePadding="10dp"></EditText>
+                <EditText
+                    android:id="@+id/txt_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nhập Email Người Dùng"
                     android:drawableLeft="@drawable/lock"
                     android:padding="10dp"
                     android:layout_margin="10dp"
-                    android:drawablePadding="10dp"></com.google.android.material.textfield.TextInputEditText>
+                    android:drawablePadding="10dp"></EditText>
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"

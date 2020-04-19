@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardview_allsanpham"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="170dp"
+    android:layout_height="250dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="6dp"
+    android:layout_margin="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/txt_tenloaisp"
+            android:textSize="10dp"></TextView>
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/txt_tenallsp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="Shoes"></TextView>
+        <ImageView
+            android:id="@+id/img_allsp"
+            android:layout_width="170dp"
+            android:layout_height="100dp"></ImageView>
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/txt_giaallsp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/red"
+                android:textSize="15dp"
+                android:text="Price"
+                ></TextView>
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:text="Chi tiết sản phẩm"></TextView>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -10,27 +10,24 @@
         android:layout_height="?actionBarSize"
         android:background="?android:attr/windowBackground"
         android:fitsSystemWindows="true"
-        app:navigationIcon="@drawable/shoppingcart"
-        app:title="Giỏ Hàng"
+        app:navigationIcon="@drawable/arrow"
+        app:title="Cart"
+        app:titleMarginStart="140dp"
         android:minHeight="?attr/actionBarSize">
     </androidx.appcompat.widget.Toolbar>
-    <FrameLayout
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@drawable/custom_toolbar_dropshadow"
-            android:orientation="vertical">
-        </TextView>
-        <ScrollView
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:drawableLeft="@drawable/loupe"
+        android:drawablePadding="10dp"
+        android:hint="Search"
+        android:id="@+id/edt_search"
+        android:padding="10dp"
+        android:background="@drawable/custom_border"></EditText>
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_giohang"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
-        </ScrollView>
-    </FrameLayout>
+                android:layout_height="match_parent">
+            </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
