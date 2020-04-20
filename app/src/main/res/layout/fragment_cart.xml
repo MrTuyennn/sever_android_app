@@ -22,7 +22,7 @@
         android:drawableLeft="@drawable/loupe"
         android:drawablePadding="10dp"
         android:hint="Search"
-        android:id="@+id/edt_search"
+        android:id="@+id/edt_search_giohang"
         android:padding="10dp"
         android:background="@drawable/custom_border"></EditText>
             <androidx.recyclerview.widget.RecyclerView

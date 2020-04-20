@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -51,29 +52,35 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    if (txt_email.getText().toString().isEmpty() ||
+                            txt_password.getText().toString().isEmpty()){
+                        Toast.makeText(LoginActivity.this, "Nhập Đầy Đủ Thông Tin", Toast.LENGTH_SHORT).show();
+                    }else {
+                        HashMap<String, String> map = new HashMap<>();
+                        map.put("email",txt_email.getText().toString());
+                        map.put("password",txt_password.getText().toString());
+                        Call<User> call = api.logiuser(map);
+                        call.enqueue(new Callback<User>() {
+                            @Override
+                            public void onResponse(Call<User> call, Response<User> response) {
+                                if (response.code() == 200){
+                                    User user = response.body();
+                                    Log.d("phone",user.getPhone()+"");
+                                    Toast.makeText(LoginActivity.this, "Login thành Công", Toast.LENGTH_SHORT).show();
+                                    Intent i = new Intent(LoginActivity.this, Home_Activity.class);
+                                    i.putExtra("user",user);
+                                    startActivity(i);
+                                }else if(response.code() == 400){
+                                    Toast.makeText(LoginActivity.this, "Err", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            @Override
+                            public void onFailure(Call<User> call, Throwable t) {
 
+                            }
+                        });
+                    }
 
-                    HashMap<String, String> map = new HashMap<>();
-                    map.put("email",txt_email.getText().toString());
-                    map.put("password",txt_password.getText().toString());
-                    Call<User> call = api.logiuser(map);
-                    call.enqueue(new Callback<User>() {
-                        @Override
-                        public void onResponse(Call<User> call, Response<User> response) {
-                                   if (response.code() == 200){
-                                       Toast.makeText(LoginActivity.this, "Login thành Công", Toast.LENGTH_SHORT).show();
-                                       Intent i = new Intent(LoginActivity.this, Home_Activity.class);
-                                       startActivity(i);
-                                   }else if(response.code() == 400){
-                                       Toast.makeText(LoginActivity.this, "Err", Toast.LENGTH_SHORT).show();
-                                   }
-                        }
-
-                        @Override
-                        public void onFailure(Call<User> call, Throwable t) {
-
-                        }
-                    });
 
             }
         });

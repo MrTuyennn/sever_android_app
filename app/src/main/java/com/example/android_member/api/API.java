@@ -32,4 +32,7 @@ public interface API {
     @Headers("Content-Type: application/json")
     @POST("signup")
     Call<Void> signupUser (@Body HashMap<String,String> map);
+
+    @GET("/getalluser")
+    Call<BaseResponse<List<User>>> getUser();
 }

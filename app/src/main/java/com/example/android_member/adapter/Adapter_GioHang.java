@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.android_member.R;
 import com.example.android_member.db.GioHangDAO;
 import com.example.android_member.model.GioHang;
+import com.example.android_member.model.SanPham;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter_GioHang extends RecyclerView.Adapter<Adapter_GioHang.ViewHolder> {
@@ -67,9 +69,13 @@ public class Adapter_GioHang extends RecyclerView.Adapter<Adapter_GioHang.ViewHo
 
     @Override
     public int getItemCount() {
+
         return gioHangList.size();
     }
-
+    public void  getFilter_giohang(ArrayList<GioHang> filterlist) {
+        gioHangList = filterlist;
+        notifyDataSetChanged();
+    }
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tensanpham_giohang,ngaymua,giasanpham_giohang,trangthai;
         ImageView img_giohang;

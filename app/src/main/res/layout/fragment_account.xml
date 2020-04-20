@@ -9,24 +9,98 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="?android:attr/windowBackground"
-        app:navigationIcon="@drawable/login"
-        app:title="Thông Tin Cá Nhân">
+        app:title="Thông Tin Cá Nhân"
+        app:titleMarginStart="120dp">
     </androidx.appcompat.widget.Toolbar>
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <TextView
+        android:layout_height="match_parent">
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@drawable/custom_toolbar_dropshadow"></TextView>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp">
-            <androidx.recyclerview.widget.RecyclerView
+            android:layout_height="match_parent">
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
-        </ScrollView>
-    </FrameLayout>
+                android:layout_height="300dp"
+                android:background="@drawable/avatar"></ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="280dp"
+                android:background="@drawable/custom_backgroundlogin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="User Name :"
+                    android:textColor="@color/black"></TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:textSize="25dp"
+                    android:id="@+id/username"
+                    android:padding="10dp"></TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="Email :"
+                    android:textColor="@color/black"></TextView>
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:textSize="25dp"
+                    android:padding="10dp"></TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="Phone :"
+                    android:textColor="@color/black"></TextView>
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:textSize="25dp"
+                    android:padding="10dp"></TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Update"
+                        android:background="@drawable/custom_boder_button"></Button>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="ĐỔi Mật Khẩu"
+                        android:background="@drawable/custom_boder_button"></Button>
+                    <Button
+                        android:id="@+id/btn_logout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Logout"
+                        android:background="@drawable/custom_boder_button"></Button>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
 </LinearLayout>

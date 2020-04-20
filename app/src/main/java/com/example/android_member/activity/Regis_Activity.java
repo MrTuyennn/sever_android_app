@@ -50,6 +50,13 @@ public class Regis_Activity extends AppCompatActivity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (edt_username.getText().toString().isEmpty() ||
+                        edt_email.getText().toString().isEmpty() ||
+                        edt_phone.getText().toString().isEmpty() ||
+                        edt_password.getText().toString().isEmpty()
+                ){
+                    Toast.makeText(Regis_Activity.this, "Vui Lòng Nhập Đầy Đủ Thông Tin", Toast.LENGTH_SHORT).show();
+                }else {
                     HashMap<String, String> map = new HashMap<>();
                     map.put("username",edt_username.getText().toString());
                     map.put("email",edt_email.getText().toString());
@@ -74,6 +81,7 @@ public class Regis_Activity extends AppCompatActivity {
 
                         }
                     });
+                }
                 }
         });
 
