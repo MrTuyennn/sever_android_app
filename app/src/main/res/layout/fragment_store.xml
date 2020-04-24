@@ -50,6 +50,23 @@
             android:id="@+id/edt_searchsp"
             android:padding="10dp"
             android:background="@drawable/custom_border"></EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Chọn giá sản phẩm"
+                android:textColor="@color/black"
+                android:gravity="center"></TextView>
+            <Spinner
+                android:id="@+id/id_spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></Spinner>
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_allsp"

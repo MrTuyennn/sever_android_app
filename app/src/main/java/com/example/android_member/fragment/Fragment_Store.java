@@ -7,7 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,26 +47,30 @@ public class Fragment_Store extends Fragment {
      List<SanPham> sanPhamList = new ArrayList<>();
     RecyclerView recyclerView , recyclerView_allsp;
     RetrofitClient retrofit = new RetrofitClient();
+    API api = retrofit.getClient().create(API.class);
     EditText edt_searchsp;
     Adapter_AllSanpham adapter_sanpham;
+    Spinner spinner;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_store,container,false);
 
+        // Lấy dữ liệu của loại sản phẩm
         recyclerView = view.findViewById(R.id.recyclerview_store);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(linearLayoutManager);
+        getDataLoaisanpham();
 
-
+        // Lấy dữ liệu của sản phẩm
         recyclerView_allsp = view.findViewById(R.id.recyclerView_allsp);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView_allsp.setItemAnimator(new DefaultItemAnimator());
         recyclerView_allsp.setLayoutManager(gridLayoutManager);
-        getData();
+
 
         // search sản phẩm
         edt_searchsp = view.findViewById(R.id.edt_searchsp);
@@ -82,6 +90,68 @@ public class Fragment_Store extends Fragment {
               filter(s.toString());
             }
         });
+
+        // Spiner
+        spinner = view.findViewById(R.id.id_spiner);
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Tất cả sản phẩm");
+        arrayList.add("Sản phẩm trên 5.000.000");
+        arrayList.add("Sản phẩm dưới 5.000.000");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, arrayList);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0){
+                    // Lấy Toàn bộ sản phẩm (API)
+                    api.getAll().enqueue(new Callback<BaseResponse<List<SanPham>>>() {
+                        @Override
+                        public void onResponse(Call<BaseResponse<List<SanPham>>> call, Response<BaseResponse<List<SanPham>>> response) {
+                            sanPhamList = response.body().getData();
+                            loadAlldata();
+                        }
+
+                        @Override
+                        public void onFailure(Call<BaseResponse<List<SanPham>>> call, Throwable t) {
+
+                        }
+                    });
+                }else if(position == 1){
+                    // lấy Sản Phẩm theo giá trên 5.000.000
+                    api.Getpricegte().enqueue(new Callback<BaseResponse<List<SanPham>>>() {
+                        @Override
+                        public void onResponse(Call<BaseResponse<List<SanPham>>> call, Response<BaseResponse<List<SanPham>>> response) {
+                            sanPhamList = response.body().getData();
+                            loadAlldata();
+                        }
+
+                        @Override
+                        public void onFailure(Call<BaseResponse<List<SanPham>>> call, Throwable t) {
+
+                        }
+                    });
+                }else if (position == 2){
+                    // lấy sản phẩm theo giá dưới 5.000.000
+                    api.Getpricelte().enqueue(new Callback<BaseResponse<List<SanPham>>>() {
+                        @Override
+                        public void onResponse(Call<BaseResponse<List<SanPham>>> call, Response<BaseResponse<List<SanPham>>> response) {
+                            sanPhamList = response.body().getData();
+                            loadAlldata();
+                        }
+
+                        @Override
+                        public void onFailure(Call<BaseResponse<List<SanPham>>> call, Throwable t) {
+
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView <?> parent) {
+            }
+        });
         return view;
     }
     private void filter(String toString) {
@@ -94,8 +164,9 @@ public class Fragment_Store extends Fragment {
         adapter_sanpham.getFilterSp(filterlist);
     }
 
-    private void getData() {
-        API api = retrofit.getClient().create(API.class);
+
+    // Lấy toàn bộ laoi5 sản phẩm (API)
+    private void getDataLoaisanpham() {
         api.getAllloaisanpham().enqueue(new Callback<BaseResponse<List<TenLoaiSP>>>() {
             @Override
             public void onResponse(Call<BaseResponse<List<TenLoaiSP>>> call, Response<BaseResponse<List<TenLoaiSP>>> response) {
@@ -109,19 +180,6 @@ public class Fragment_Store extends Fragment {
             @Override
             public void onFailure(Call<BaseResponse<List<TenLoaiSP>>> call, Throwable t) {
                 Log.d("err" , t.getMessage());
-            }
-        });
-
-        api.getAll().enqueue(new Callback<BaseResponse<List<SanPham>>>() {
-            @Override
-            public void onResponse(Call<BaseResponse<List<SanPham>>> call, Response<BaseResponse<List<SanPham>>> response) {
-                sanPhamList = response.body().getData();
-                loadAlldata();
-            }
-
-            @Override
-            public void onFailure(Call<BaseResponse<List<SanPham>>> call, Throwable t) {
-
             }
         });
     }
