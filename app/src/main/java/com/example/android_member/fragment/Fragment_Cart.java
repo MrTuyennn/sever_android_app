@@ -27,55 +27,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment_Cart extends Fragment {
-    Adapter_GioHang adapter_gioHang;
-    List<GioHang> gioHangList = new ArrayList<>();
-    RecyclerView recyclerView_giohang;
-    GioHangDAO gioHangDAO;
-    TextView edt_search_giohang;
+//    Adapter_GioHang adapter_gioHang;
+//    List<GioHang> gioHangList = new ArrayList<>();
+//    RecyclerView recyclerView_giohang;
+//    GioHangDAO gioHangDAO;
+//    TextView edt_search_giohang;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cart,container,false);
-        recyclerView_giohang = view.findViewById(R.id.recyclerView_giohang);
-        recyclerView_giohang.setHasFixedSize(true);
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        gioHangDAO = new GioHangDAO(getContext());
-        gioHangList = gioHangDAO.getAll();
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView_giohang.setLayoutManager(linearLayoutManager);
-        recyclerView_giohang.setItemAnimator(new DefaultItemAnimator());
-        adapter_gioHang = new Adapter_GioHang(gioHangList,getContext());
-        recyclerView_giohang.setAdapter(adapter_gioHang);
-        adapter_gioHang.notifyDataSetChanged();
-        edt_search_giohang = view.findViewById(R.id.edt_search_giohang);
+//        recyclerView_giohang = view.findViewById(R.id.recyclerView_giohang);
+//        recyclerView_giohang.setHasFixedSize(true);
+//        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+//        gioHangDAO = new GioHangDAO(getContext());
+//        gioHangList = gioHangDAO.getAll();
+//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        recyclerView_giohang.setLayoutManager(linearLayoutManager);
+//        recyclerView_giohang.setItemAnimator(new DefaultItemAnimator());
+//        adapter_gioHang = new Adapter_GioHang(gioHangList,getContext());
+//        recyclerView_giohang.setAdapter(adapter_gioHang);
+//        adapter_gioHang.notifyDataSetChanged();
+//        edt_search_giohang = view.findViewById(R.id.edt_search_giohang);
 
         // search tìm kiếm sản phẩm trong giỏ hàng
-        edt_search_giohang.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                    text_search(s.toString());
-            }
-
-            private void text_search(String toString) {
-                ArrayList<GioHang> filterlist = new ArrayList<>();
-                for (GioHang gioHang: gioHangList){
-                    if (gioHang.getTensanpham().toLowerCase().contains(toString.toLowerCase())){
-                        filterlist.add(gioHang);
-                    }
-                }
-                adapter_gioHang.getFilter_giohang(filterlist);
-            }
-        });
+//        edt_search_giohang.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                    text_search(s.toString());
+//            }
+//
+//            private void text_search(String toString) {
+//                ArrayList<GioHang> filterlist = new ArrayList<>();
+//                for (GioHang gioHang: gioHangList){
+//                    if (gioHang.getTensanpham().toLowerCase().contains(toString.toLowerCase())){
+//                        filterlist.add(gioHang);
+//                    }
+//                }
+//                adapter_gioHang.getFilter_giohang(filterlist);
+//            }
+//        });
         return view;
     }
 }

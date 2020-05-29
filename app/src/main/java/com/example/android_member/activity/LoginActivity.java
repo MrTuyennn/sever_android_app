@@ -76,12 +76,13 @@ public class LoginActivity extends AppCompatActivity {
                             }
                             @Override
                             public void onFailure(Call<User> call, Throwable t) {
-
+                                Toast.makeText(LoginActivity.this, "Err" + t, Toast.LENGTH_LONG).show();
                             }
                         });
                     }
-
-
+//                Toast.makeText(LoginActivity.this, "Oke", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(LoginActivity.this,Home_Activity.class);
+//                startActivity(intent);
             }
         });
         tv_resgitered.setOnClickListener(new View.OnClickListener() {

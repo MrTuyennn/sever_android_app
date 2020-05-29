@@ -32,9 +32,9 @@ public class InforSanPhamActivity extends AppCompatActivity {
     ImageView img_sanpham;
     TextView txt_loaisanpham, txt_tensanpham, txt_giasanpham, txt_motasanpham;
     Button btn_addcard;
-    GioHangDAO gioHangDAO;
-    SimpleDateFormat dataformat = new SimpleDateFormat("dd-MM-yyyy");
-    String stringcurrenttime;
+//    GioHangDAO gioHangDAO;
+//    SimpleDateFormat dataformat = new SimpleDateFormat("dd-MM-yyyy");
+//    String stringcurrenttime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,23 +61,30 @@ public class InforSanPhamActivity extends AppCompatActivity {
            txt_motasanpham.setText(sanPham.getMotaSP());
         }
 
-
-
-        // thêm giỏ hàng
         btn_addcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String imageSP = sanPham.getImageSP();
-                String tensanpham = sanPham.getTenSP();
-                int giasanpham = sanPham.getGiaSP();
-                GioHang cart = new GioHang(imageSP, tensanpham,giasanpham, stringcurrenttime,  "Waiting");
-                if (gioHangDAO.insert(cart) == true) {
-                    Toast.makeText(getApplicationContext(), "Thêm Thành Công", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Thêm Thất Bại" + imageSP, Toast.LENGTH_LONG).show();
-                }
+                Toast.makeText(InforSanPhamActivity.this, "Ok", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+        // thêm giỏ hàng
+//        btn_addcard.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String imageSP = sanPham.getImageSP();
+//                String tensanpham = sanPham.getTenSP();
+//                int giasanpham = sanPham.getGiaSP();
+//                GioHang cart = new GioHang(imageSP, tensanpham,giasanpham, stringcurrenttime,  "Waiting");
+//                if (gioHangDAO.insert(cart) == true) {
+//                    Toast.makeText(getApplicationContext(), "Thêm Thành Công", Toast.LENGTH_LONG).show();
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Thêm Thất Bại" + imageSP, Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
     }
 
     private void getControl() {
@@ -87,7 +94,7 @@ public class InforSanPhamActivity extends AppCompatActivity {
         txt_giasanpham = findViewById(R.id.txt_giasanpham);
         txt_motasanpham = findViewById(R.id.txt_motasanpham);
         btn_addcard = findViewById(R.id.btn_addcart);
-        gioHangDAO = new GioHangDAO(getApplicationContext());
-        stringcurrenttime = dataformat.format(currentTime);
+//        gioHangDAO = new GioHangDAO(getApplicationContext());
+//        stringcurrenttime = dataformat.format(currentTime);
     }
 }

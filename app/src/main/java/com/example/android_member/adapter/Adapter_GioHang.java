@@ -49,21 +49,21 @@ public class Adapter_GioHang extends RecyclerView.Adapter<Adapter_GioHang.ViewHo
         holder.giasanpham_giohang.setText(gioHang.getGiasanpham() + "");
         try {
             Picasso.with(context)
-                    .load("http://192.168.1.5:3000/" + gioHang.getImage())
+                    .load("http://10.82.173.170:3000/" + gioHang.getImage())
                     .into(holder.img_giohang);
         } catch (Exception e){
 
         }
-        holder.btn_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context,"Xóa thành công",Toast.LENGTH_LONG).show();
-                GioHang gioHang1 = gioHangList.get(position);
-                gioHangDAO.delete(gioHang1);
-                gioHangList.remove(position);
-                notifyDataSetChanged();
-            }
-        });
+//        holder.btn_delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context,"Xóa thành công",Toast.LENGTH_LONG).show();
+//                GioHang gioHang1 = gioHangList.get(position);
+//                gioHangDAO.delete(gioHang1);
+//                gioHangList.remove(position);
+//                notifyDataSetChanged();
+//            }
+//        });
 
     }
 

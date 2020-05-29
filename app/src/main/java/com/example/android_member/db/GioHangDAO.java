@@ -50,20 +50,20 @@ public class GioHangDAO {
                 int giasanpham = c.getInt(3);
                 String ngaymua = c.getString(4);
                 String trangthai = c.getString(5);
-                GioHang gioHang = new GioHang(id,image, tensanpham, giasanpham, ngaymua,trangthai);
-                listnd.add(gioHang);
+//                GioHang gioHang = new GioHang(id,image, tensanpham, giasanpham, ngaymua,trangthai);
+//                listnd.add(gioHang);
             }while (c.moveToNext());
             c.close();
         }
         return listnd;
     }
 
-    public int delete(GioHang gioHang){
-        SQLiteDatabase db = helper.getWritableDatabase();
-        int id = gioHang.getID();
-        int result = db.delete(TABLE_NAME,"ID = ?",new String[]{String.valueOf(id)});
-        if (result == 0)
-            return -1;
-        return 1;
-    }
+//    public int delete(GioHang gioHang){
+//        SQLiteDatabase db = helper.getWritableDatabase();
+//        int id = gioHang.getID();
+//        int result = db.delete(TABLE_NAME,"ID = ?",new String[]{String.valueOf(id)});
+//        if (result == 0)
+//            return -1;
+//        return 1;
+//    }
 }

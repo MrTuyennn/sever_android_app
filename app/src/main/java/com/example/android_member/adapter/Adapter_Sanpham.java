@@ -45,7 +45,7 @@ public class Adapter_Sanpham extends RecyclerView.Adapter<Adapter_Sanpham.ViewHo
          final SanPham sanPham = sanPhamList.get(position);
         try {
             Picasso.with(context)
-                    .load("http://192.168.1.5:3000/" + sanPham.getImageSP())
+                    .load("http://10.82.173.170:3000/" + sanPham.getImageSP())
                     .into(holder.img_sanpham);
         } catch (Exception e){
 

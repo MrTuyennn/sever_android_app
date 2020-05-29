@@ -42,7 +42,7 @@ public class Adapter_LoaiSP extends RecyclerView.Adapter<Adapter_LoaiSP.ViewHold
         final TenLoaiSP loaiSanPham = loaiSanPhamList.get(position);
         try {
             Picasso.with(context)
-                    .load("http://192.168.1.5:3000/" + loaiSanPham.getImage())
+                    .load("http://10.82.173.170:3000/" + loaiSanPham.getImage())
                     .into(holder.img_store);
         } catch (Exception e){
 
